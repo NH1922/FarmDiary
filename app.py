@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request,redirect,url_for
 from flask_wtf import Form
 from wtforms import TextField, TextAreaField, validators, StringField, SubmitField, DecimalField
 from wtforms.fields.html5 import DateField
@@ -75,23 +75,51 @@ def setvalues():
 
 @app.route('/add',methods = ["POST","GET"])
 def add_expense():
+    return render_template("add.html")
+
+@app.route('/success',methods=["POST","GET"])
+def success_insert():
     global expenses
     entry = {}
     global budget
     print(budget)
+    print(request.args.get('type'))
     entry['date'] = datetime.datetime.now()
-    entry['type'] = request.form.get('type')
-    entry['name'] = request.form.get('name')
-    entry['cost'] = request.form.get('cost')
+    entry['type'] = request.args.get('type')
+    entry['name'] = request.args.get('name')
+    entry['cost'] = request.args.get('cost')
     expenses.append(entry)
     print(expenses)
-    return render_template("add.html")
+    return redirect(url_for("add_expense"))
 
 
 @app.route("/view")
 def view_expenses():
     global expenses
     return render_template("view.html", expeneses=expenses)
+
+
+@app.route("/data/<string:dateofentry>/")
+def data(dateofentry):
+    print("Inside result")
+    print(dateofentry)
+    result = {}
+    print(result)
+    global expenses
+    print(expenses)
+    for expense in expenses:
+        print("inside loop")
+        if expense['date'].strftime('%Y-%m-%d %H:%M:%S.%f') == dateofentry:
+            print(expense)
+            result = expense
+        print(result)
+    return render_template("entry.html",  result=result)
+
+@app.route("/test")
+def test():
+    global expenses
+
+    return render_template('test.html',result = expenses[0])
 
 
 if __name__ == '__main__':

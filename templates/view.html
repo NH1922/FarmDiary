@@ -7,12 +7,15 @@
     <title>View Expensnes</title>
 </head>
 <body>
-
+<section class="content-section-text bg-primary"></section>
 <div class="container">
+<ul>
 {% for expense in expeneses %}
-{{ expense['date']}}
+    <li class = "list-group-item"><a href = "data/{{expense['date']}}">{{expense['date']}}</a></li>
     <br>
 {% endfor %}
+</ul>
+</div>
 </div>
 </body>
 </html>

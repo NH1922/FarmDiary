@@ -1,0 +1,17 @@
+{% include '_navbar.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Testing
+{% for key,value in result.items() %}
+    <div>
+<h2>{{key}} :{{value}} </h2>
+</div>
+{% endfor %}
+</body>
+</html>
