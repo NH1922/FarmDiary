@@ -1,12 +1,87 @@
+{% from "_formhelpers.html" import render_field %}
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Testing baby !</title>
+    <title>Getting Started</title>
+    <link href="static/css/000040bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+  <link href="static/css/000053all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="static/css/001657simple-line-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="static/css/000010stylish-portfolio.min.css" rel="stylesheet">
 </head>
 <body>
-Just testing if this thing works !
-Just testing if this thing works !
-Just testing if this thing works !
+<!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Farm Diary</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#page-top">Home</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#about">About</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#services">Services</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+<!-- Header -->
+  <section class="content-section bg-info" id="about">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">Fill in the details for initial configuration</h1>
+    </div>
+    <div class="overlay"></div>
+  </section>
+
+<section class="content-section bg-white" id="info">
+<div class="container">
+<form method="post" action="/setvals">
+    <div class="form-group">
+    <label><h1>Budget</h1></label>
+    <input type="number" class="form-control" name="budget" aria-describedby="emailHelp" placeholder="Enter budget" required/>
+    <small id="budgetHelp" class="form-text text-muted">Budget for the required deadline.</small>
+  </div>
+    <div class="form-group">
+    <label><h1>Deadline</h1></label>
+    <input type="date" class="form-control" name="deadline" aria-describedby="emailHelp" placeholder="Deadline" required/>
+    <small id="deadlineHelp" class="form-text text-muted">Set a deadline corresponding to the budget.</small>
+  </div>
+    <div class="form-group">
+    <label><h1>Village,State</h1></label>
+    <input type="text" class="form-control" name="village" aria-describedby="emailHelp" placeholder="Village,State" required/>
+    <small id="addressHelp" class="form-text text-muted">The beautiful village you belong to.</small>
+  </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</section>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/js/001649jquery.min.js"></script>
+  <script src="static/js/000044bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="static/js/001656jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="static/js/000018stylish-portfolio.min.js"></script>
+
 </body>
 </html>

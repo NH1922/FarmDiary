@@ -1,0 +1,43 @@
+{% include '_navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+
+
+<section class="content-section bg-info" id="about">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">Dashboard</h1>
+    </div>
+    <div class="overlay"></div>
+  </section>
+
+<div class="h-100 row align-items-center">
+    <div class="container">
+    <div class ="row ">
+
+        <div class="col bg-primary"><h1>{{ budget }}</h1>
+        <h3>Total budget</h3></div>
+
+    <div class="col bg-white"><h1>{{ deadline }} </h1>
+        <h3>Deadline</h3></div>
+    </div>
+
+        <div class="row">
+   <div class="col bg-white"> <h1>{{ current_expenses }} </h1>
+       <h3>Current expenses</h3></div>
+
+
+    <div class="col bg-primary"><h1>{{ remaining_expenses}} </h1>
+        <h3>Remains</h3></div>
+    </div>
+    </div>
+
+
+</div>
+</div>
+</body>
+</html>

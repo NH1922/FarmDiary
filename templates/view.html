@@ -1,0 +1,18 @@
+{% include "_navbar.html"%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Expensnes</title>
+</head>
+<body>
+
+<div class="container">
+{% for expense in expeneses %}
+{{ expense['date']}}
+    <br>
+{% endfor %}
+</div>
+</body>
+</html>
