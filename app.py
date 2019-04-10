@@ -2,6 +2,8 @@ from flask import Flask, render_template,request,redirect,url_for
 from flask_wtf import Form
 from wtforms import TextField, TextAreaField, validators, StringField, SubmitField, DecimalField
 from wtforms.fields.html5 import DateField
+from regressor import predict_costs
+from predictor import predict_expenses
 import datetime
 
 
@@ -115,11 +117,25 @@ def data(dateofentry):
         print(result)
     return render_template("entry.html",  result=result)
 
+@app.route("/suggestions")
+def suggestions():
+    month = 9  #october
+    result = predict_costs(month)
+    print(result)
+    return render_template("result.html", result = result)
+
+@app.route("/prediction")
+def predict():
+    costs = predict_expenses() * 3
+    return render_template("cost.html",costs = costs)
+
+
 @app.route("/test")
 def test():
-    global expenses
-
-    return render_template('test.html',result = expenses[0])
+    month = 9  # october
+    result = predict_costs(month)
+    print(result)
+    return render_template("test.html", result=result)
 
 
 if __name__ == '__main__':
